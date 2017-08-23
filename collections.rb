@@ -1,4 +1,4 @@
-{ data: { rooms:
+hotelrooms = { data: { rooms:
     [ { id: 1, room_number: "201", capacity: 50}, { id: 2, room_number: "301", capacity: 200 }, { id: 3, room_number: "1B", capacity: 100}
     ],
     events: [
@@ -9,3 +9,11 @@
     ]
   }
 }
+
+rm201 =  hotelrooms[:data][:rooms][0][:capacity]
+
+hotelrooms[:data][:events].each do |find|
+  if find[:room_id] == 1 && find[:attendees] < rm201
+    puts "OK"
+  end
+end
